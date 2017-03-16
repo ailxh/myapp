@@ -3,6 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
+		dump(23456);die;
        // 1.讲timestamp，nonce，token按字典排序
 		$timestamp 	= $_GET['timestamp'];
 		$nonce		= $_GET['nonce'];
