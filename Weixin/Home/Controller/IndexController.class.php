@@ -8,14 +8,16 @@ class IndexController extends Controller {
 		$nonce		= $_GET['nonce'];
 		$token		= 'dacaozhuang';
 		$signature	= $_GET['signature'];
+        $echostr    = $_GET['echostr'];
 		$array 		= array($timestamp,$nonce,$token);
 		sort($array);
 		// 2.将排序后的三个参数拼接之后用sha1加密
-		$tmpstr 	= implode('',$array);//join
-		$tmpstr		= sha1($tmpstr);
+		$tmpstr 	= implode($array);//join
+        $tmpstr		= sha1($tmpstr);
 		// 3.将加密后的字符串与signature进行对比，判断该请求是否是来自微信
 		if($tmpstr == $signature){
-			echo $_GET['echostr'];
+            header('content-type:text');
+			echo $echostr;
 			exit;
 		}else{
 			$this->reponsemsg();
