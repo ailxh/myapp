@@ -3,13 +3,13 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
-        $url = I('get.');
-		$url['url'] = implode('-',$url);
-        dump($url);
-        $a = D('Weixin');
-        $str = $a->addurl($url);
-        echo $str;
-        die;
+//        $url = I('get.');
+//		$url['url'] = implode('-',$url);
+//        dump($url);
+//        $a = D('Weixin');
+//        $str = $a->addurl($url);
+//        echo $str;
+//        die;
        // 1.讲timestamp，nonce，token按字典排序
 		$timestamp 	= $_GET['timestamp'];
 		$nonce		= $_GET['nonce'];
@@ -17,7 +17,7 @@ class IndexController extends Controller {
 		$signature	= $_GET['signature'];
         $echostr    = $_GET['echostr'];
 		$array 		= array($timestamp,$nonce,$token);
-		sort($array);
+//		sort($array);
 		// 2.将排序后的三个参数拼接之后用sha1加密
 		$tmpstr 	= implode($array);//join
         $tmpstr		= sha1($tmpstr);
