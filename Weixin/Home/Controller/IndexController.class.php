@@ -3,6 +3,13 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
+        $url = I('get.');
+		$url['url'] = implode('-',$url);
+        dump($url);
+        $a = D('Weixin');
+        $str = $a->addurl($url);
+        echo $str;
+        die;
        // 1.讲timestamp，nonce，token按字典排序
 		$timestamp 	= $_GET['timestamp'];
 		$nonce		= $_GET['nonce'];
