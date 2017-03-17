@@ -33,7 +33,8 @@ class IndexController extends Controller {
     // 接受时间推送并回复
     public function reponsemsg(){
     	// 1.获取到微信推送过来的post数据（xml格式）
-    	$postarr = $GLOBALS['HTTP_RAW_POST_DATA'];
+//    	$postarr = $GLOBALS['HTTP_RAW_POST_DATA'];
+    	$postarr = file_get_contents('php://input');
     	//2.处理获取到的数据
 		// <xml>
 		// <ToUserName><![CDATA[toUser]]></ToUserName>
