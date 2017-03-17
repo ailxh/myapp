@@ -58,13 +58,7 @@ class IndexController extends Controller {
     			$time		= time();
     			$MsgType	= 'text';
     			$content	= '欢迎加入大家庭';
-    			$template = "<xml>
-							<ToUserName><![CDATA[%s]]></ToUserName>
-							<FromUserName><![CDATA[%s]]></FromUserName>
-							<CreateTime>%s</CreateTime>
-							<MsgType><![CDATA[%s]]></MsgType>
-							<Content><![CDATA[%s]]></Content>
-							</xml>";
+    			$template = '<xml><ToUserName><![CDATA[%s]]></ToUserName><FromUserName><![CDATA[%s]]></FromUserName><CreateTime>%s</CreateTime><MsgType><![CDATA[%s]]></MsgType><Content><![CDATA[%s]]></Content></xml>';
 				$info = sprintf($template,$toUser,$fromUser,$time,$MsgType,$content);
 				echo $info;
     		}
