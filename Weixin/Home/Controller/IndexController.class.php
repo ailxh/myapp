@@ -44,11 +44,6 @@ class IndexController extends Controller {
 		// <Event><![CDATA[subscribe]]></Event>
 		// </xml>
     	$postobj = simplexml_load_string($postarr);
-    	// $postobj->ToUserName = '';
-    	// $postobj->FromUserName = '';
-    	// $postobj->CreateTime = '';
-    	// $postobj->MsgType = '';
-    	// $postobj->Event = '';
     	if(strtolower($postobj->MsgType) == 'event'){
     		// 是否是关注
     		if (strtolower($postobj->Event) == 'subscribe') {
@@ -63,5 +58,9 @@ class IndexController extends Controller {
 				echo $info;
     		}
     	}
+    }
+
+    public function shizhong(){
+        $this->display();
     }
 }
